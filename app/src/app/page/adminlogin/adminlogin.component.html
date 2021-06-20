@@ -1,0 +1,15 @@
+<div class="container-fuild">
+	<div class="row">
+		<div class="card">
+			<img src="assets/img/logo.webp"/>
+			<hr/>
+			<h1>S'identifier(Administrateur)</h1>
+			<form >
+				<input [ngModelOptions]="{standalone: true}" [(ngModel)]="logins" class="form-control" type="text" placeholder="Login">
+				<input [ngModelOptions]="{standalone: true}" [(ngModel)]="passwords" class="form-control" type="password" placeholder="Mot de passe">
+				<button class="btn btn-primary  form-control" (click)="login()">S'identifier</button>
+				<small>{{error}}</small>
+			</form>
+		</div>
+	</div>
+</div>

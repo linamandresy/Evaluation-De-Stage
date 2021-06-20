@@ -269,4 +269,15 @@ public class DAOLina {
 				rs.close();
 		}
 	}
+	public LinkedList find(Class cl)throws Exception{
+		Connection c = null;
+		try{
+			c = this.connect();
+			return find(c, cl);
+		}catch(Exception ex){
+			throw ex;
+		}finally{
+			if(c!=null) c.close();
+		}
+	}
 }

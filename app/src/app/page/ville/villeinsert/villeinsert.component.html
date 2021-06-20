@@ -1,0 +1,9 @@
+<div class="container">
+	<div class="row">
+		<h1>Nouvelle Ville</h1>
+		<form>
+			<input [ngModelOptions]="{standalone:true}" [(ngModel)]="nomVilles" type="text" placeholder ="Nom de la ville" class="form-control"/>
+			<button  class="btn btn-primary form-control" (click)="insert()">Enregistrer</button>
+		</form>
+	</div>
+</div>
