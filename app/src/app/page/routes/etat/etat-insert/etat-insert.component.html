@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="row">
+		<h1>Nouvel état de route</h1>
+		<form>
+			<div class="form-group">
+				<input required [ngModelOptions]="{standalone:true}" [(ngModel)]="nomEtat" class="form-control" type="text" placeholder="Nom de la nouvelle état de route" />
+				<input required [ngModelOptions]="{standalone:true}" [(ngModel)]="budget" class="form-control" type="text" placeholder="Budget à l'unité en Ariary"/>
+				<input required [ngModelOptions]="{standalone:true}" [(ngModel)]="delai" class="form-control" type="text" placeholder="Delai d'entretien de la route"/>
+				<input required [ngModelOptions]="{standalone:true}" [(ngModel)]="coef" class="form-control" type="text" placeholder="Coéfficient de dégradation"/>
+				<input required [ngModelOptions]="{standalone:true}" [(ngModel)]="unit" class="form-control" type="text" placeholder="Unité de distance de budget"/>
+			</div>
+			<button class="btn btn-primary" (click)="save()">Enregistrer</button>
+		</form>
+		<small>{{error}}</small>
+	</div>
+</div>

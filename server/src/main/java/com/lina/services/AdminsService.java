@@ -8,6 +8,9 @@ import com.lina.models.dao.DAOLina;
 import com.lina.models.dao.DBConnect;
 
 public class AdminsService {
+	static AdminsToken checkToken(Connection c , String token)throws Exception{
+		return AdminsToken.findAdminsToken(c, token.substring(7)); 
+	}
 	public static Response checkToken(String token){
 		try{
 			return new Response(200,AdminsToken.findAdminsToken(token.substring(7)));

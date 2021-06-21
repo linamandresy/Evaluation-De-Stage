@@ -1,7 +1,7 @@
 package com.lina.controllers;
 
+import com.lina.services.EtatsService;
 import com.lina.services.Response;
-import com.lina.services.RoutesService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,19 +10,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.GetMapping;
 
-
-
 @RestController
-@RequestMapping("routes")
-@CrossOrigin(origins="*")
-public class RoutesController {
-	@PostMapping(value="")
-	public Response postRoutes(@RequestHeader(name="Authorization")String token,int noRn,int idVilleDepart,int idVilleArrive,double distance) {
-		return RoutesService.nouvelleRoutes(token, noRn, idVilleDepart, idVilleArrive, distance);
+@RequestMapping("etats")
+@CrossOrigin(origins = "*")
+public class EtatsController {
+	@PostMapping(value="insert")
+	public Response postEtats(@RequestHeader(name="Authorization") String token,String nomEtat,double budget,double delai,double coef,double unitesDistances) {
+		return EtatsService.nouvelEtat(token, nomEtat, budget, delai, coef,unitesDistances);
 	}
 	@GetMapping(value="")
-	public Response getRoutes() {
-		return RoutesService.listeRoutes();
-	}
-		
+	public Response getEtats() {
+		return EtatsService.listeEtat();
+	}	
 }

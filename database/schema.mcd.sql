@@ -17,8 +17,10 @@ create table routes(
 create table etats(
 	idetats serial primary key,
 	nometat varchar(50) not null,
-	budget decimal(10,2) not null check(budget>0),
-	delai decimal(10,2) not null check(delai>0)
+	budget decimal(10,2) not null check(budget>=0),
+	delai decimal(10,2) not null check(delai>=0),
+	coef decimal(10,2) not null check(coef>=0 and coef<=100),
+	unitesdistances decimal(10,2) not null check(unitesdistances>0)
 );
 
 create table portionsroutes(
@@ -29,5 +31,3 @@ create table portionsroutes(
 	idetats int not null,
 	foreign key (idetats) references etats(idetats)
 );
-
-alter table portionsroutes add unitesdistances decimal(10,2) not null check(unitesdistances>0);

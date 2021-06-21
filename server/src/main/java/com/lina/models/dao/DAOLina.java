@@ -65,7 +65,7 @@ public class DAOLina {
 		String[] fieldName = getFieldName(cl);
 		String sql = "INSERT INTO ".concat(tableName).concat("(");
 		for (int i = 0; i < fieldName.length; i++) {
-			if(!fieldName[i].toLowerCase().startsWith("id")){
+			if(!fieldName[i].toLowerCase().startsWith("id".concat(tableName.toLowerCase()))){
 				if (!sql.endsWith("("))
 					sql = sql.concat(",");
 				sql = sql.concat(fieldName[i].toUpperCase());
@@ -73,7 +73,7 @@ public class DAOLina {
 		}
 		sql = sql.concat(") VALUES (");
 		for (int i = 0; i < fieldName.length; i++) {
-			if(!fieldName[i].toLowerCase().startsWith("id")){
+			if(!fieldName[i].toLowerCase().startsWith("id".concat(tableName.toLowerCase()))){
 				if (!sql.endsWith("("))
 					sql = sql.concat(",");
 				sql = sql.concat("?");
@@ -83,7 +83,7 @@ public class DAOLina {
 		PreparedStatement pst = c.prepareStatement(sql);
 		int n=1;
 		for (int i = 0; i < fieldName.length; i++) {
-			if(!fieldName[i].toLowerCase().startsWith("id")){
+			if(!fieldName[i].toLowerCase().startsWith("id".concat(tableName.toLowerCase()))){
 				Method get = cl.getMethod("get".concat(fieldName[i]), null);
 				Object value = get.invoke(obj, null);
 				pst.setObject(n, value);

@@ -1,0 +1,19 @@
+<div class="container">
+	<div class="row">
+		<h1>Nouvelle Portion de la RN numéro</h1>
+		<form>
+			<div class="form-group">
+				<input [ngModelOptions]="{standalone:true}" [(ngModel)]="debut" class="form-control" type="text"
+					placeholder="Kilometrage de début" />
+				<input [ngModelOptions]="{standalone:true}" [(ngModel)]="fin" class="form-control" type="text"
+					placeholder="Kilometrage de fin" />
+				<label>Etat de la route</label>
+				<select class="form-select" [ngModelOptions]="{standalone:true}" [(ngModel)]="idEtat">
+					<option *ngFor="let e of etats" value="{{e.idEtats}}">{{e.nomEtat}}</option>
+				</select>
+			</div>
+			<button class='btn btn-primary' (click)='save()'>Enregistrer</button>
+		</form>
+		<small>{{error}}</small>
+	</div>
+</div>

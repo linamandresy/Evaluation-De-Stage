@@ -11,6 +11,10 @@ import { Error404Component } from './page/error/error404/error404.component';
 import { AccueilComponent } from './page/accueil/accueil.component';
 import { AccueilAdminComponent } from './page/accueil-admin/accueil-admin.component';
 import { VilleinsertComponent } from './page/ville/villeinsert/villeinsert.component';
+import { RoutesInsertComponent } from './page/routes/routes-insert/routes-insert.component';
+import { EtatInsertComponent } from './page/routes/etat/etat-insert/etat-insert.component';
+import { PortionsInsertComponent } from './page/routes/portions/portions-insert/portions-insert.component';
+import { RoutesListeComponent } from './page/routes/routes-liste/routes-liste.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { VilleinsertComponent } from './page/ville/villeinsert/villeinsert.compo
     Error404Component,
     AccueilComponent,
     AccueilAdminComponent,
-    VilleinsertComponent
+    VilleinsertComponent,
+    RoutesInsertComponent,
+    EtatInsertComponent,
+    PortionsInsertComponent,
+    RoutesListeComponent
   ],
   imports: [
     BrowserModule,

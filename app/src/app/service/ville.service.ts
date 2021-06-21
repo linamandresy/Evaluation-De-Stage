@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { base_url } from 'src/environments/environment.prod';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { base_url } from 'src/environments/environment.prod';
 export class VilleService {
 
   constructor(private http: HttpClient) { }
-  insertVilles(nom: string): any {
+  insertVilles(nom: string): Observable<any> {
     const data = new FormData();
     data.append("nomVilles", nom);
     const opt = {
@@ -17,5 +18,8 @@ export class VilleService {
       }
     };
     return this.http.post(base_url + "villes", data, opt);
+  }
+  getVilles():Observable<any>{
+    return this.http.get(base_url+"villes");
   }
 }

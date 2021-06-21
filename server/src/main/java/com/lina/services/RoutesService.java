@@ -14,4 +14,11 @@ public class RoutesService {
 			return new Response(500,e.getMessage());
 		}
 	}
+	public static  Response listeRoutes(){
+		try {
+			return new Response(200,DBConnect.getDAO().find(Routes.class));
+		} catch (Exception e) {
+			return new Response(500,e.getMessage());
+		}
+	}
 }

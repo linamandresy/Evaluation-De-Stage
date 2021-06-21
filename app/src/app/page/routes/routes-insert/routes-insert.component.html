@@ -1,0 +1,20 @@
+<div class="container">
+	<h1>Nouvelle route</h1>
+	<form>
+		<input  [ngModelOptions]="{standalone:true}" [(ngModel)]="noRn" class="form-control" type="number" placeholder="N° RN" min="0">
+		<label>Ville de départ</label>
+		<select [ngModelOptions]="{standalone:true}" [(ngModel)]="idDepart" class="form-select" aria-label="Ville de départ">
+			<option selected value="0">Choisir ville</option>
+			<option *ngFor="let v of villes" value="{{v.idVilles}}">{{v.nomVilles}}</option>
+		</select>
+		<label>Ville d'arrivé</label>
+		<select [ngModelOptions]="{standalone:true}" [(ngModel)]="idArrive" class="form-select" aria-label="Ville de départ">
+			<option selected value="0">Choisir ville</option>
+			<option *ngFor="let v of villes" value="{{v.idVilles}}">{{v.nomVilles}}</option>
+		</select>
+		<input [ngModelOptions]="{standalone:true}" [(ngModel)]="distance" type="text" class="form-control" placeholder="distance" />
+	</form>
+	<button class="btn btn-primary" (click)="save()">Enregistrer</button>
+	<br>
+	<small>{{error}}</small>
+</div>

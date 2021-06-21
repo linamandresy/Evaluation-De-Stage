@@ -23,7 +23,7 @@ public class Routes {
 	}
 
 	public void setDistance(double distance) throws Exception{
-		if(distance<0)throw new Exception("Champs invalide");
+		if(distance<1)throw new Exception("Champs invalide");
 		this.distance = distance;
 	}
 
@@ -31,11 +31,14 @@ public class Routes {
 		this.idRoutes = idRoutes;
 	}
 
-	public void setIdVilleArrive(int idVilleArrive) {
+	public void setIdVilleArrive(int idVilleArrive) throws Exception{
+		if(idVilleArrive==0)throw new Exception("Veuillez choisir une valeur");
 		this.idVilleArrive = idVilleArrive;
 	}
 
-	public void setIdVilleDepart(int idVilleDepart) {
+	public void setIdVilleDepart(int idVilleDepart) throws Exception{
+		if(idVilleDepart==0)throw new Exception("Veuillez choisir une valeur");
+		if(idVilleDepart==idVilleArrive)throw new Exception("Ville de départ et ville d'arrivé confondu");
 		this.idVilleDepart = idVilleDepart;
 	}
 
