@@ -1,0 +1,26 @@
+<div class="container">
+	<div class="row">
+		<h1>Parametres d'entretiens</h1>
+		<a [routerLink]="['insert']"><button class="btn btn-primary">Ajouter</button></a>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Etat de la route</th>
+					<th>Budget </th>
+					<th>Delai </th>
+					<th>Coef </th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let e of etat">
+					<td>{{e.nomEtat}}</td>
+					<td>{{e.budget}} Ar</td>
+					<td>{{e.delai}} Jours</td>
+					<td>{{e.coef}} %</td>
+					<td><a [routerLink]="['update',e.idEtats]"><button class='btn  btn-primary'>Update</button></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

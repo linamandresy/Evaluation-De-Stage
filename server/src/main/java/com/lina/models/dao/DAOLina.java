@@ -169,7 +169,7 @@ public class DAOLina {
 		}
 		Method getId = this.getMethodStartWith(cl, "getId").getFirst();
 		Object value = getId.invoke(obj, null);
-		pst.setObject(fieldName.length + 2, value);
+		pst.setObject(fieldName.length + 1, value);
 		pst.execute();
 	}
 

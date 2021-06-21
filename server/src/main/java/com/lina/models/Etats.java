@@ -107,6 +107,33 @@ public class Etats {
 			throw e;
 		}
 	}
+	public static Etats findById(Connection c,int id) throws Exception {
+		String sql = "SELECT IDETATS, NOMETAT, BUDGET, DELAI, COEF, UNITESDISTANCES FROM ETATS WHERE IDETATS = ?";
+		PreparedStatement pst = c.prepareStatement(sql);
+		pst.setInt(1,id);
+		ResultSet rs = null;
+		try {
+			rs = pst.executeQuery();
+			
+			if (rs.next())
+				return new Etats(rs.getInt(1), rs.getString(2), rs.getDouble(3), rs.getDouble(4), rs.getDouble(5),rs.getDouble(6));
+			throw new Exception("Parametre d'entretiens inexistant");
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	public static Etats findById(int id)throws Exception{
+		Connection  c = null;
+		try{
+			c = DBConnect.getDAO().connect();
+			return findById(c, id);
+		}catch(Exception ex){
+			throw ex;
+		}finally{
+			if(c!=null) c.close();
+		}
+	}
+
 	public static LinkedList<Etats> find()throws Exception{
 		Connection c = null;
 		try {

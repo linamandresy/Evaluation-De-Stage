@@ -1,0 +1,15 @@
+Une interface (avec login) qui permet à l’administrateur de :
+	✔ Login @done(21-06-21 15:58)
+	✔ Gérer les villes @done(21-06-21 15:59)
+	✔ Gérer les routes @done(21-06-21 15:59)
+	✔ Gérer les portions de route @done(21-06-21 15:59)
+	✔ Gérer les paramètres d’entretien @done(21-06-21 16:07)
+	✔ Gérer les utilisateurs @done(21-06-21 16:11)
+	✔ Insérer des données de test @done(21-06-21 16:21)
+Une interface accessible par l’utilisateur qui :
+	✔ Affiche une liste des routes (numéro, ville départ et ville d’arrivée, état global de la route) @done(21-06-21 16:13)
+	✔ Rajouter un champ de recherche par ville sur la liste @done(21-06-21 16:13)
+	✔ Rajouter un moyen de trier la liste par nom de route @done(21-06-21 16:14)
+	✔ Ajouter un bouton exportation Excel de cette liste @done(21-06-21 16:14)
+	✔ Lorsqu’on clique sur le numéro de la route (ex : RN1), on doit afficher la fiche de la route, avec la liste des portions (ainsi que les détails) @done(21-06-21 16:14)
+	✔ Afficher aussi le montant et la durée nécessaire pour remettre totalement la route à l’état 1 @done(21-06-21 16:14)

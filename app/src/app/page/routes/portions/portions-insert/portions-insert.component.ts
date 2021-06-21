@@ -10,8 +10,7 @@ import { PortionsService } from 'src/app/service/portions.service';
 })
 export class PortionsInsertComponent implements OnInit {
   idRoute: any='';
-  debut: any='';
-  fin: any='';
+  distance: any='';
   idEtat: any='';
   etats: any = []
   error: string = '';
@@ -24,7 +23,6 @@ export class PortionsInsertComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.idRoute = params['id'];
-      console.log(params['id']);
     });
     const onSuccess = (res: any) => {
       if (res.status == 200)
@@ -36,12 +34,12 @@ export class PortionsInsertComponent implements OnInit {
   }
   save(): any {
     const onSuccess = (res: any) => {
-      if (res.status == 200) this.router.navigate(["admin"]);
+      if (res.status == 200) this.router.navigate(["routes",this.idRoute,"portion"]);
       else this.error = res.data;
     };
     const onError = (res: any) => {
       this.router.navigate(["error", res.message]);
     };
-    this.service.insertPortions(this.idRoute, this.debut, this.fin, this.idEtat).subscribe(onSuccess, onError);
+    this.service.insertPortions(this.idRoute, this.distance, this.idEtat).subscribe(onSuccess, onError);
   }
 }

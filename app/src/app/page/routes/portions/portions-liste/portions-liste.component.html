@@ -1,0 +1,24 @@
+<div class="container">
+	<div class="row">
+		<h1>Etats des routes de la RN n° ...</h1>
+		<a [routerLink]="['insert']"><button class="btn btn-primary">Ajouter</button></a>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Distance</th>
+					<th>Etat de la route</th>
+					<th>Coût de réparation</th>
+					<th>Délai de réparation</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let p of portions">
+					<td>{{p.distance}} km</td>
+					<td>{{p.etatRoute}}</td>
+					<td>{{p.cout}} Ar</td>
+					<td>{{p.delai}} Jours</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

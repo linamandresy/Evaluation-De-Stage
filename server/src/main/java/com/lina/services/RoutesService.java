@@ -1,6 +1,7 @@
 package com.lina.services;
 
 import com.lina.models.Routes;
+import com.lina.models.RoutesLabel;
 import com.lina.models.dao.DBConnect;
 
 public class RoutesService {
@@ -17,6 +18,13 @@ public class RoutesService {
 	public static  Response listeRoutes(){
 		try {
 			return new Response(200,DBConnect.getDAO().find(Routes.class));
+		} catch (Exception e) {
+			return new Response(500,e.getMessage());
+		}
+	}
+	public static Response listeRoutesLabel(){
+		try {
+			return new Response(200,RoutesLabel.find());
 		} catch (Exception e) {
 			return new Response(500,e.getMessage());
 		}

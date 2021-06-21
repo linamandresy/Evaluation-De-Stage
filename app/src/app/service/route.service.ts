@@ -22,4 +22,7 @@ export class RouteService {
     };
     return this.http.post(base_url + "routes", data, opt);
   }
+  listLabeledRoute():Observable<any>{
+    return this.http.get(base_url+"routes/label");
+  }
 }

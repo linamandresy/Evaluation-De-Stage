@@ -32,7 +32,7 @@ export class RoutesInsertComponent implements OnInit {
     }
     const onSuccess=(res:any)=>{
       if(res.status==200){
-        this.router.navigate([""]);
+        this.router.navigate(["routes"]);
       }else{
         this.error=res.data;
       }

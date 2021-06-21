@@ -1,11 +1,25 @@
 <div class="container">
 	<div class="row">
+		<a [routerLink]="['insert']"><button class="btn btn-primary">Ajouter</button></a>
 		<table class="table  table-striped">
 			<thead>
 				<tr>
+					<th>#</th>
+					<th>Ville de départ</th>
+					<th>Ville d'arrivée</th>
+					<th>Distance</th>
 					<th></th>
 				</tr>
 			</thead>
+			<tbody>
+				<tr *ngFor="let r of routes">
+					<td>{{r.idRoutes}}</td>
+					<td>{{r.villeDebut}}</td>
+					<td>{{r.villeFin}}</td>
+					<td>{{r.distance}} km</td>
+					<td><a [routerLink]="['/routes',r.idRoutes,'portion']"><button class="btn btn-primary">Voir</button></a></td>
+				</tr>
+			</tbody>
 		</table>
 	</div>
 </div>

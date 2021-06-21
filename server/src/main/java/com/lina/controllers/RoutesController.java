@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 
+
 @RestController
 @RequestMapping("routes")
 @CrossOrigin(origins="*")
@@ -24,5 +25,10 @@ public class RoutesController {
 	public Response getRoutes() {
 		return RoutesService.listeRoutes();
 	}
+	@GetMapping(value="label")
+	public Response getLabeledRoutes() {
+		return RoutesService.listeRoutesLabel();
+	}
+	
 		
 }

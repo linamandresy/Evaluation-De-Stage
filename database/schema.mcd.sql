@@ -26,8 +26,7 @@ create table etats(
 create table portionsroutes(
 	idportionsroutes serial primary key,
 	idroutes int not null,
-	debut decimal(10,2) not null  check(debut>0),
-	arrive decimal(10,2) not null check(arrive>debut),
+	distance decimal(10,2) not null check(distance>0),
 	idetats int not null,
 	foreign key (idetats) references etats(idetats)
 );

@@ -15,6 +15,9 @@ import { RoutesInsertComponent } from './page/routes/routes-insert/routes-insert
 import { EtatInsertComponent } from './page/routes/etat/etat-insert/etat-insert.component';
 import { PortionsInsertComponent } from './page/routes/portions/portions-insert/portions-insert.component';
 import { RoutesListeComponent } from './page/routes/routes-liste/routes-liste.component';
+import { PortionsListeComponent } from './page/routes/portions/portions-liste/portions-liste.component';
+import { EtatListeComponent } from './page/routes/etat/etat-liste/etat-liste.component';
+import { EtatUpdateComponent } from './page/routes/etat/etat-update/etat-update.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { RoutesListeComponent } from './page/routes/routes-liste/routes-liste.co
     RoutesInsertComponent,
     EtatInsertComponent,
     PortionsInsertComponent,
-    RoutesListeComponent
+    RoutesListeComponent,
+    PortionsListeComponent,
+    EtatListeComponent,
+    EtatUpdateComponent
   ],
   imports: [
     BrowserModule,
