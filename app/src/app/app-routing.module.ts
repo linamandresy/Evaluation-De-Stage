@@ -12,6 +12,7 @@ import { PortionsInsertComponent } from './page/routes/portions/portions-insert/
 import { PortionsListeComponent } from './page/routes/portions/portions-liste/portions-liste.component';
 import { RoutesInsertComponent } from './page/routes/routes-insert/routes-insert.component';
 import { RoutesListeComponent } from './page/routes/routes-liste/routes-liste.component';
+import { SignUpComponent } from './page/sign-up/sign-up.component';
 import { VilleinsertComponent } from './page/ville/villeinsert/villeinsert.component';
 
 const routes: Routes = [{
@@ -24,13 +25,10 @@ const routes: Routes = [{
   path:'error/:message',
   component:Error404Component
 },{
-  path:'',
-  component:AccueilComponent
-},{
   path:'admin/login',
   component:AdminloginComponent
 },{
-  path:'admin',
+  path:'',
   component:AccueilAdminComponent
 },{
   path:'ville/insert',
@@ -56,6 +54,9 @@ const routes: Routes = [{
 },{
   path:'routes/:id/portion',
   component:PortionsListeComponent
+},{
+  path:'users',
+  component:SignUpComponent
 }];
 
 @NgModule({

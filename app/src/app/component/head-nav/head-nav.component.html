@@ -1,0 +1,62 @@
+<!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
+<!--header start-->
+<header class="header black-bg">
+	<div class="sidebar-toggle-box">
+		<div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+	</div>
+	<!--logo start-->
+	<a href="index.html" class="logo"><b>FONDS<span>ROUTIER</span></b></a>
+	<!--logo end-->
+	
+	<div class="top-menu">
+		<ul class="nav pull-right top-menu">
+			<li><a class="logout" [routerLink]="['login']">Login</a></li>
+			<li><a class="logout" [routerLink]="['admin','login']"> Admin Login</a></li>
+		</ul>
+	</div>
+</header>
+<!--header end-->
+<!-- **********************************************************************************************************************************************************
+        MAIN SIDEBAR MENU
+        *********************************************************************************************************************************************************** -->
+<!--sidebar start-->
+<aside>
+	<div id="sidebar" class="nav-collapse ">
+		<!-- sidebar menu start-->
+		<ul class="sidebar-menu" id="nav-accordion">
+			<li class="mt">
+				<a class="active" [routerLink]="['admin']">
+					<i class="fa fa-dashboard"></i>
+					<span>Dashboard</span>
+				</a>
+			</li>
+			<li class="mt">
+				<a [routerLink]="['ville','insert']">
+					<i class="fa fa-dashboard"></i>
+					<span>Nouvelle Ville</span>
+				</a>
+			</li>
+			<li class="mt">
+				<a [routerLink]="['etats']">
+					<i class="fa fa-cogs"></i>
+					<span>Paramètre d'entretien</span>
+				</a>
+			</li>
+			<li class="mt">
+				<a [routerLink]="['routes']">
+					<i class="fa fa-book"></i>
+					<span>Routes</span>
+				</a>
+			</li>
+			<li class="mt">
+				<a [routerLink]="['users']">
+					<i class="fa fa-user"></i>
+					<span>Nouvel Utilisateur</span>
+				</a>
+			</li>
+		</ul>
+		<!-- sidebar menu end-->
+	</div>
+</aside>

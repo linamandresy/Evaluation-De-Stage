@@ -41,11 +41,12 @@ public class UsersService {
 		}
 	}
 
-	public static Response signup(String fName, String lName, String logins, String passwords) {
+	public static Response signup(String token,String fName, String lName, String logins, String passwords) {
 		Connection c = null;
 		try {
 			DAOLina dao = DBConnect.getDAO();
 			c = dao.connect();
+			AdminsService.checkToken(c, token);
 			Users user = new Users(fName, lName, logins, passwords);
 			dao.insert(c, user);
 			c.commit();

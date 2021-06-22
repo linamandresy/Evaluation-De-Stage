@@ -1,17 +1,17 @@
-img{
-	margin: 0 auto;
+.container{
+	padding-top: 5rem;
 }
+
+button{
+	width: 20%;
+}
+input{
+	width:50%;
+}
+
 h1 {
 	font-size: 2em;
 }
-.card {
-	width: 20%;
-	margin: 2rem auto;
-	padding: 2rem;
-	text-align: center;
-	overflow: hidden;
-}
-
 .form-control {
 	margin: 1rem;
 }

@@ -1,0 +1,14 @@
+<div class="container">
+	<div class="col-md-12">
+		<h1>Nouvel utilisateur</h1>
+		<hr>
+		<form>
+			<input [ngModelOptions]="{standalone: true}" [(ngModel)]="fname" class="form-control" type="text" placeholder="Nom " required>
+			<input [ngModelOptions]="{standalone: true}" [(ngModel)]="lname" class="form-control" type="text" placeholder="Prénom">
+			<input [ngModelOptions]="{standalone: true}" [(ngModel)]="logins" class="form-control" type="text" placeholder="Login" required>
+			<input [ngModelOptions]="{standalone: true}" [(ngModel)]="passwords" class="form-control" type="password" placeholder="Mot de passe" required>
+			<button class="btn btn-primary  form-control" (click)="signup()">S'identifier</button>
+			<small>{{error}}</small>
+		</form>
+	</div>
+</div>

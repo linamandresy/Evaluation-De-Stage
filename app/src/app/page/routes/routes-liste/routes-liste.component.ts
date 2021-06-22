@@ -34,4 +34,7 @@ export class RoutesListeComponent implements OnInit {
     };
     this.service.listLabeledRoute().subscribe(onSuccess,onError);
   }
+  download():any{
+    this.service.download();
+  }
 }

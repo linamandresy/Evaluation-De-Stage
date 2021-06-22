@@ -19,8 +19,8 @@ public class UsersController {
 		return UsersService.authentificate(logins, passwords);
 	}
 	@PostMapping(value="signup")
-	public Response signup(String fName, String lName, String logins, String passwords) {
-		return UsersService.signup(fName, lName, logins, passwords);
+	public Response signup(@RequestHeader(name = "Authorization")String token,String fName, String lName, String logins, String passwords) {
+		return UsersService.signup(token,fName, lName, logins, passwords);
 	}
 	@GetMapping(value="check")
 	public Response checkToken(@RequestHeader(name = "Authorization")String token) {

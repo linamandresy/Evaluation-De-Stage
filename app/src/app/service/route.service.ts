@@ -25,4 +25,7 @@ export class RouteService {
   listLabeledRoute():Observable<any>{
     return this.http.get(base_url+"routes/label");
   }
+  download():void{
+    window.open(base_url+"routes/excel");
+  }
 }

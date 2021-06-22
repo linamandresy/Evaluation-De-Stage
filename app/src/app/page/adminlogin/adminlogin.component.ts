@@ -24,7 +24,7 @@ export class AdminloginComponent implements OnInit {
       if(res.status==200){
         console.log(res);
         sessionStorage.setItem("token",res.data);
-        this.router.navigate(["admin"]);
+        this.router.navigate([""]);
       }else{
         this.error=res.data;
       }

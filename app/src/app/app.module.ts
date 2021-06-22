@@ -19,6 +19,8 @@ import { RoutesListeComponent } from './page/routes/routes-liste/routes-liste.co
 import { PortionsListeComponent } from './page/routes/portions/portions-liste/portions-liste.component';
 import { EtatListeComponent } from './page/routes/etat/etat-liste/etat-liste.component';
 import { EtatUpdateComponent } from './page/routes/etat/etat-update/etat-update.component';
+import { HeadNavComponent } from './component/head-nav/head-nav.component';
+import { SignUpComponent } from './page/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { EtatUpdateComponent } from './page/routes/etat/etat-update/etat-update.
     RoutesListeComponent,
     PortionsListeComponent,
     EtatListeComponent,
-    EtatUpdateComponent
+    EtatUpdateComponent,
+    HeadNavComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
