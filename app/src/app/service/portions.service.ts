@@ -24,4 +24,27 @@ export class PortionsService {
   getLabel(idRoute: number): Observable<any> {
     return this.http.get(base_url + "portions/label/" + idRoute);
   }
+  valider(idRoute:number):Observable<any>{
+    const opt = {
+      headers:{
+        'Authorization':'Bearer '+sessionStorage.getItem('token')
+      }
+    }
+    return this.http.put(base_url+"routes/valider/"+idRoute,null,opt);
+  }
+  findById(idPortion:number):Observable<any>{
+    return this.http.get(base_url+"portions/find/"+idPortion);
+  }
+  update(idPortion:number,idRoutes:any,distance:any,idEtats:any):Observable<any>{
+    const opt = {
+      headers:{
+        'Authorization':'Bearer '+sessionStorage.getItem('token')
+      }
+    };
+    const data = new FormData();
+    data.append("idRoutes",idRoutes);
+    data.append("distance",distance);
+    data.append("idEtats",idEtats);
+    return this.http.put(base_url+"portions/update/"+idPortion,data,opt);    
+  }
 }

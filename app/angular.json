@@ -56,7 +56,8 @@
               "src/assets/lib/gritter-conf.js",
               "src/assets/lib/sparkline-chart.js",
               "src/assets/lib/zabuto_calendar.js",
-              "src/assets/js/lina.js"
+              "src/assets/js/lina.js",
+              "src/assets/js/pdf.js"
             ]
           },
           "configurations": {

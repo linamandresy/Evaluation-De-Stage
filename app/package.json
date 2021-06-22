@@ -23,6 +23,7 @@
     "bootstrap": "^5.0.1",
     "datatables.net": "^1.10.25",
     "datatables.net-dt": "^1.1.0",
+    "html2pdf.js": "^0.9.3",
     "jquery": "^3.6.0",
     "mdb-ui-kit": "^3.8.0",
     "rxjs": "~6.6.0",

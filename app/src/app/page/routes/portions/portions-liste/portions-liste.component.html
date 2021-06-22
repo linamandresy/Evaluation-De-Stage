@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="row">
+	<div class="col-md-12">
 		<h1>Etats des routes de la RN n° {{noRn}}</h1>
 		<a [routerLink]="['insert']"><button class="btn btn-primary">Ajouter</button></a>
 		<table class="table" id="portion-table">
@@ -9,6 +9,47 @@
 					<th>Etat de la route</th>
 					<th>Coût de réparation</th>
 					<th>Délai de réparation</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let p of portions">
+					<td>{{p.distance}} km</td>
+					<td>{{p.etatRoute}}</td>
+					<td>{{p.cout}} Ar</td>
+					<td>{{p.delai}} Jours</td>
+					<td><a [routerLink]="['/routes',idRoute,'portion',p.idPortionsRoutes,'update']"><button class="btn btn-primary">Modifier</button></a></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="2"><strong>Total</strong></td>
+					<td>{{cout}} Ar</td>
+					<td>{{delai}} Jours</td>
+				</tr>
+			</tfoot>
+		</table>
+		<button class="btn btn-primary" *ngIf="!valid" (click)="valider()">Valider</button>
+		<small>{{error}}</small>
+	</div>
+	<hr>
+	<div class="col-md-9" #fiche id="fiche">
+		<h1>Fiche de la RN n° {{noRn}}</h1>
+		<br>
+		<h2>Ville d'origine : <strong>{{nomVilleDepart}}</strong></h2>
+		<h2>Ville de destination : <strong>{{nomVilleArrive}}</strong></h2>
+		<hr>
+		<div class="progress">
+			<div *ngFor="let p of part;let i = index" [class]="'progress-bar '+ color[i]" role="progressbar" [style.width]="p+'%'" aria-valuemin="0" aria-valuemax="100"></div>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th><strong>Distance</strong></th>
+					<th><strong>Etat de la route</strong></th>
+					<th><strong>Coût de réparation</strong></th>
+					<th><strong>Délai de réparation</strong></th>
+					<th><strong></strong></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -28,4 +69,5 @@
 			</tfoot>
 		</table>
 	</div>
+	<button class="btn btn-primary" onclick="generatePDF()">Exporter PDF</button>		
 </div>

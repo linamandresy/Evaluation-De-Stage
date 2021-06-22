@@ -1,44 +1,26 @@
 package com.lina.controllers;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
 
-import com.lina.helpers.MediaTypeUtils;
 import com.lina.helpers.RoutesExcelExporter;
 import com.lina.models.RoutesLabel;
 import com.lina.services.Response;
 import com.lina.services.RoutesService;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.InputStreamResource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @RestController
 @RequestMapping("routes")
@@ -77,4 +59,8 @@ public class RoutesController {
         excelExporter.export(response);    
     }  
 
+	@PutMapping(value="valider/{id}")
+	public Response putMethodName(@RequestHeader(name="Authorization") String token,@PathVariable int id) {		
+		return RoutesService.valider(token, id);
+	}
 }

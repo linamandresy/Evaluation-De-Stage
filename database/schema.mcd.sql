@@ -30,3 +30,5 @@ create table portionsroutes(
 	idetats int not null,
 	foreign key (idetats) references etats(idetats)
 );
+
+alter table routes add valid boolean not null default 'F';

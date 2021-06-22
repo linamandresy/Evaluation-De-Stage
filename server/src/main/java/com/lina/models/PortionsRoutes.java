@@ -80,4 +80,35 @@ public class PortionsRoutes {
 			if(c!=null) c.close();
 		}
 	}
+	
+	public static PortionsRoutes findById(Connection c, int id) throws Exception {
+		String sql = "SELECT IDPORTIONSROUTES,IDROUTES,DISTANCE,IDETATS FROM PORTIONSROUTES WHERE IDPORTIONSROUTES  = ?";
+		PreparedStatement pst = c.prepareStatement(sql);
+		pst.setInt(1, id);
+		ResultSet rs = null;
+		try {
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				return new PortionsRoutes(id, rs.getInt(2), rs.getDouble(3), rs.getInt(4));
+			}
+			throw new Exception("Portion inexistante");
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (rs != null)
+				rs.close();
+		}
+	}
+
+	public static PortionsRoutes findById(int id) throws Exception {
+		Connection c = null;
+		try {
+			c = DBConnect.getDAO().connect();
+			return findById(c, id);
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if(c!=null) c.close();
+		}
+	}
 }

@@ -10,6 +10,7 @@ import { EtatListeComponent } from './page/routes/etat/etat-liste/etat-liste.com
 import { EtatUpdateComponent } from './page/routes/etat/etat-update/etat-update.component';
 import { PortionsInsertComponent } from './page/routes/portions/portions-insert/portions-insert.component';
 import { PortionsListeComponent } from './page/routes/portions/portions-liste/portions-liste.component';
+import { PortionsUpdateComponent } from './page/routes/portions/portions-update/portions-update.component';
 import { RoutesInsertComponent } from './page/routes/routes-insert/routes-insert.component';
 import { RoutesListeComponent } from './page/routes/routes-liste/routes-liste.component';
 import { SignUpComponent } from './page/sign-up/sign-up.component';
@@ -28,9 +29,6 @@ const routes: Routes = [{
   path:'admin/login',
   component:AdminloginComponent
 },{
-  path:'',
-  component:AccueilAdminComponent
-},{
   path:'ville/insert',
   component:VilleinsertComponent
 },{
@@ -46,6 +44,9 @@ const routes: Routes = [{
   path:'routes/:id/portion/insert',
   component:PortionsInsertComponent
 },{
+  path:'routes/:id/portion/:idP/update',
+  component:PortionsUpdateComponent
+},{
   path:'etats',
   component:EtatListeComponent
 },{
@@ -57,6 +58,10 @@ const routes: Routes = [{
 },{
   path:'users',
   component:SignUpComponent
+},{
+  path:'**',
+  redirectTo:'routes',
+  pathMatch:'full'
 }];
 
 @NgModule({

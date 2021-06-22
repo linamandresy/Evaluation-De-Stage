@@ -48,4 +48,33 @@ public class PortionsRoutesService {
 			return new Response(500,e.getMessage());
 		}
 	}
+	public static Response updatePortions(String token,int idPortionsRoutes,int idRoutes,double distance,int idEtats){
+		Connection c = null;
+		try {
+			DAOLina dao = DBConnect.getDAO();
+			c = dao.connect();
+			AdminsService.checkToken(c, token);
+			PortionsRoutes pr = new PortionsRoutes(idPortionsRoutes, idRoutes, distance, idEtats);
+			dao.update(c, pr);
+			c.commit();
+			return new Response(200,"Portions mis à jour");
+		} catch (Exception e) {
+			try {
+				if(c!=null) c.rollback();
+			} catch (Exception ex) {
+			}
+			return new Response(500,e.getMessage());
+		}finally{
+			try {
+				if(c!=null) c.close();
+			} catch (Exception e) {}
+		}
+	}
+	public static Response findById(int id){
+		try{
+			return new Response(200,PortionsRoutes.findById(id));
+		}catch(Exception ex){
+			return new Response(500,ex.getMessage());
+		}
+	}
 }

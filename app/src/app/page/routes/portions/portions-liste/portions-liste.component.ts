@@ -15,6 +15,13 @@ export class PortionsListeComponent implements OnInit {
   delai:number=0;
   cout:number=0;
   dtOptions: DataTables.Settings = {};
+  valid:any='';
+  distance:number=0;
+  sommeProp:number=0;
+  nomVilleDepart:string='';
+  nomVilleArrive:string='';
+  part:any=[];
+  color:any=[];
   constructor(
     private route:ActivatedRoute,
     private service:PortionsService,
@@ -28,6 +35,7 @@ export class PortionsListeComponent implements OnInit {
     };
     const onSuccess=(res:any)=>{
       if(res.status==200) {
+        console.log(res);
         this.portions=res.data.listPortions;
         $(function(){
           $("#portion-table").DataTable();
@@ -35,7 +43,14 @@ export class PortionsListeComponent implements OnInit {
         this.noRn=res.data.noRn;
         this.delai=res.data.delaiTotal;
         this.cout=res.data.montantTotal;
-        
+        this.distance=res.data.distance;
+        this.valid = res.data.valid;
+        this.sommeProp=res.data.sumDistance;
+        this.nomVilleDepart=res.data.villeDebut;
+        this.nomVilleArrive=res.data.villeFin;
+        this.part=res.data.part;
+        this.color=res.data.color;
+        console.log(this.part);
       }
       else this.error=res.data; 
     };
@@ -46,5 +61,22 @@ export class PortionsListeComponent implements OnInit {
       this.idRoute = params['id'];
       this.service.getLabel(this.idRoute).subscribe(onSuccess,onError);
     });
+  }
+  valider():any{
+    if(this.distance!=this.sommeProp){
+      this.error="Distance incohérente ! Veuillez modifier la liste des proportions";
+      return;
+    }
+    const onSuccess=(res:any)=>{
+      if(res.status==200){
+        this.router.navigate(['routes']);
+      }else{
+        this.error=res.data;
+      }
+    }
+    const onError=(res:any)=>{
+      this.router.navigate(['error',res.message]);
+    }
+    this.service.valider(this.idRoute).subscribe(onSuccess,onError);
   }
 }

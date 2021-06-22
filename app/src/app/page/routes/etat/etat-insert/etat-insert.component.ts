@@ -21,7 +21,7 @@ export class EtatInsertComponent implements OnInit {
   save(): any {
     const onSuccess = (res: any) => {
       if (res.status == 200)
-        this.router.navigate(["admin"]);
+        this.router.navigate(["etats"]);
       else
         this.error = res.data;
     };

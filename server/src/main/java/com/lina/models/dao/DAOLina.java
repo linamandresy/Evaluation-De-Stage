@@ -167,7 +167,7 @@ public class DAOLina {
 			Object value = get.invoke(obj, null);
 			pst.setObject(i + 1, value);
 		}
-		Method getId = this.getMethodStartWith(cl, "getId").getFirst();
+		Method getId = this.getMethodStartWith(cl, "getId".concat(tableName)).getFirst();
 		Object value = getId.invoke(obj, null);
 		pst.setObject(fieldName.length + 1, value);
 		pst.execute();

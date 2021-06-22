@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 	var unique_id = $.gritter.add({
 	  // (string | mandatory) the heading of the notification

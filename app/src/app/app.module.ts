@@ -21,6 +21,7 @@ import { EtatListeComponent } from './page/routes/etat/etat-liste/etat-liste.com
 import { EtatUpdateComponent } from './page/routes/etat/etat-update/etat-update.component';
 import { HeadNavComponent } from './component/head-nav/head-nav.component';
 import { SignUpComponent } from './page/sign-up/sign-up.component';
+import { PortionsUpdateComponent } from './page/routes/portions/portions-update/portions-update.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SignUpComponent } from './page/sign-up/sign-up.component';
     EtatListeComponent,
     EtatUpdateComponent,
     HeadNavComponent,
-    SignUpComponent
+    SignUpComponent,
+    PortionsUpdateComponent
   ],
   imports: [
     BrowserModule,

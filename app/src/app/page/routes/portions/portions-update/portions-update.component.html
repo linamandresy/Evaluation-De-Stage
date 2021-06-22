@@ -1,8 +1,9 @@
 <div class="container">
 	<div class="row">
-		<h1>Nouvelle Portion</h1>
+		<h1>Modifier Portion</h1>
 		<form>
 			<div class="form-group">
+				<label>Distance</label>
 				<input [ngModelOptions]="{standalone:true}" [(ngModel)]="distance" class="form-control" type="text"
 					placeholder="Distance" />
 				<label>Etat de la route</label>
@@ -10,7 +11,7 @@
 					<option *ngFor="let e of etats" value="{{e.idEtats}}">{{e.nomEtat}}</option>
 				</select>
 			</div>
-			<button class='btn btn-primary' (click)='save()'>Enregistrer</button>
+			<button class='btn btn-primary' (click)='update()'>Modifier</button>
 		</form>
 		<small>{{error}}</small>
 	</div>

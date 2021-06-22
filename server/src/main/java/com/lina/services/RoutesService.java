@@ -1,5 +1,7 @@
 package com.lina.services;
 
+import java.sql.Connection;
+
 import com.lina.models.Routes;
 import com.lina.models.RoutesLabel;
 import com.lina.models.dao.DBConnect;
@@ -27,6 +29,28 @@ public class RoutesService {
 			return new Response(200,RoutesLabel.find());
 		} catch (Exception e) {
 			return new Response(500,e.getMessage());
+		}
+	}
+	public static Response valider(String token,int idRoute){
+		Connection c = null;
+		try {
+			c = DBConnect.getDAO().connect();
+			AdminsService.checkToken(c, token);
+			Routes.valider(c,idRoute);
+			c.commit();
+			return new Response(200,"Route validé");
+		} catch (Exception e) {
+			try {
+				if(c!=null) c.rollback();
+			} catch (Exception ex) {
+			}
+			return new  Response(500,e.getMessage());
+		}finally{
+			try {
+				if(c!=null) c.close();
+			} catch (Exception e) {
+				//TODO: handle exception
+			}
 		}
 	}
 }
