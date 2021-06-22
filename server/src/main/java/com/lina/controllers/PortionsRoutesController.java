@@ -28,5 +28,8 @@ public class PortionsRoutesController {
 	public Response getLabel(@PathVariable int id) {
 		return PortionsRoutesService.listePortionLabelParRoute(id);
 	}
-
+	@GetMapping(value = "sort/{id}/{indice}")
+	public Response getSort(@PathVariable int id,@PathVariable int indice) {
+		return PortionsRoutesService.listePortionLabelParRouteSorted(id, indice);
+	}
 }

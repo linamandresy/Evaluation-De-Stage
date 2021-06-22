@@ -1,8 +1,8 @@
 <div class="container">
 	<div class="row">
-		<h1>Etats des routes de la RN n° ...</h1>
+		<h1>Etats des routes de la RN n° {{noRn}}</h1>
 		<a [routerLink]="['insert']"><button class="btn btn-primary">Ajouter</button></a>
-		<table class="table">
+		<table class="table" id="portion-table">
 			<thead>
 				<tr>
 					<th>Distance</th>
@@ -19,6 +19,13 @@
 					<td>{{p.delai}} Jours</td>
 				</tr>
 			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="2"><strong>Total</strong></td>
+					<td>{{cout}} Ar</td>
+					<td>{{delai}} Jours</td>
+				</tr>
+			</tfoot>
 		</table>
 	</div>
 </div>

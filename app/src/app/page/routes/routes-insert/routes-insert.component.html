@@ -1,20 +1,32 @@
 <div class="container">
 	<h1>Nouvelle route</h1>
-	<form>
-		<input  [ngModelOptions]="{standalone:true}" [(ngModel)]="noRn" class="form-control" type="number" placeholder="N° RN" min="0">
-		<label>Ville de départ</label>
-		<select [ngModelOptions]="{standalone:true}" [(ngModel)]="idDepart" class="form-select" aria-label="Ville de départ">
-			<option selected value="0">Choisir ville</option>
-			<option *ngFor="let v of villes" value="{{v.idVilles}}">{{v.nomVilles}}</option>
-		</select>
-		<label>Ville d'arrivé</label>
-		<select [ngModelOptions]="{standalone:true}" [(ngModel)]="idArrive" class="form-select" aria-label="Ville de départ">
-			<option selected value="0">Choisir ville</option>
-			<option *ngFor="let v of villes" value="{{v.idVilles}}">{{v.nomVilles}}</option>
-		</select>
-		<input [ngModelOptions]="{standalone:true}" [(ngModel)]="distance" type="text" class="form-control" placeholder="distance" />
-	</form>
-	<button class="btn btn-primary" (click)="save()">Enregistrer</button>
-	<br>
-	<small>{{error}}</small>
+	<div class="row">
+		<div class="md-form">
+			<label for="norn" class="active">N° RN</label>
+			<input [ngModelOptions]="{standalone:true}" [(ngModel)]="noRn" class="form-control" type="number"
+				placeholder="N° RN" min="0" id="norn">	
+		</div>
+		<div class="md-form">
+			<label for="depart">Ville de départ</label>
+			<select [ngModelOptions]="{standalone:true}" [(ngModel)]="idDepart" class="form-select "
+				searchable="Rechercher ici..." id="depart">
+				<option *ngFor="let v of villes" value="{{v.idVilles}}">{{v.nomVilles}}</option>
+			</select>
+		</div>
+		<div class="md-form">
+			<label for="arrive" class="active">Ville d'arrivé</label>
+			<select [ngModelOptions]="{standalone:true}" [(ngModel)]="idArrive" class="form-select"
+				searchable="Rechercher ici..." id="arrive">
+				<option *ngFor="let v of villes" value="{{v.idVilles}}">{{v.nomVilles}}</option>
+			</select>
+		</div>
+		<div class="md-form">
+			<label for="distance" class="active">Distance</label>
+			<input [ngModelOptions]="{standalone:true}" [(ngModel)]="distance" type="text" class="form-control"
+				id="distance" />
+		</div>
+		<button class="btn btn-primary" (click)="save()">Enregistrer</button>
+		<br>
+		<small>{{error}}</small>
+	</div>
 </div>

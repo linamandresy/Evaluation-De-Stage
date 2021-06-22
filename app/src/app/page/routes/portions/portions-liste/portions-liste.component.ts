@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PortionsService } from 'src/app/service/portions.service';
-
+declare var $:any;
 @Component({
   selector: 'app-portions-liste',
   templateUrl: './portions-liste.component.html',
@@ -11,14 +11,32 @@ export class PortionsListeComponent implements OnInit {
   idRoute:any='';
   error:string='';
   portions:any=[];
+  noRn:number=0;
+  delai:number=0;
+  cout:number=0;
+  dtOptions: DataTables.Settings = {};
   constructor(
     private route:ActivatedRoute,
     private service:PortionsService,
     private router:Router) { }
 
   ngOnInit(): void {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+      processing: true
+    };
     const onSuccess=(res:any)=>{
-      if(res.status==200) this.portions=res.data;
+      if(res.status==200) {
+        this.portions=res.data.listPortions;
+        $(function(){
+          $("#portion-table").DataTable();
+        });
+        this.noRn=res.data.noRn;
+        this.delai=res.data.delaiTotal;
+        this.cout=res.data.montantTotal;
+        
+      }
       else this.error=res.data; 
     };
     const onError=(res:any)=>{

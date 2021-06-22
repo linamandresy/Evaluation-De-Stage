@@ -2,6 +2,7 @@ package com.lina.services;
 
 import java.sql.Connection;
 
+import com.lina.models.PortionsAll;
 import com.lina.models.PortionsLabel;
 import com.lina.models.PortionsRoutes;
 import com.lina.models.dao.DAOLina;
@@ -42,7 +43,7 @@ public class PortionsRoutesService {
 	}
 	public static Response listePortionLabelParRoute(int idRoute){
 		try {
-			return new Response(200,PortionsLabel.findLabelByIdRoute(idRoute));
+			return new Response(200,new PortionsAll(idRoute));
 		} catch (Exception e) {
 			return new Response(500,e.getMessage());
 		}

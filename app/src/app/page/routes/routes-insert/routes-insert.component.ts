@@ -2,6 +2,7 @@ import { Component, NO_ERRORS_SCHEMA, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RouteService } from 'src/app/service/route.service';
 import { VilleService } from 'src/app/service/ville.service';
+declare var $:any;
 
 @Component({
   selector: 'app-routes-insert',

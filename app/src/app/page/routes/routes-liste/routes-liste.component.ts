@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RouteService } from 'src/app/service/route.service';
+declare var $:any;
 
 @Component({
   selector: 'app-routes-liste',
@@ -8,13 +9,24 @@ import { RouteService } from 'src/app/service/route.service';
   styleUrls: ['./routes-liste.component.scss']
 })
 export class RoutesListeComponent implements OnInit {
+  dtOptions: DataTables.Settings = {};
   error:string='';
   routes:any=[];
   constructor(private service:RouteService,private router:Router) { }
 
   ngOnInit(): void {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+      processing: true
+    };
     const onSuccess=(res:any)=>{
-      if(res.status==200) this.routes=res.data;
+      if(res.status==200) {
+        this.routes=res.data;
+        $(function(){
+          $("#route-table").DataTable();
+        });
+      }
       else this.error=res.data;
     };
     const onError=(res:any)=>{
@@ -22,5 +34,4 @@ export class RoutesListeComponent implements OnInit {
     };
     this.service.listLabeledRoute().subscribe(onSuccess,onError);
   }
-
 }
